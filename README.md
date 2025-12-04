@@ -82,9 +82,8 @@ There are two options:
 If you found this useful, please consider citing our work:
 ```
 @inproceedings{daroya2026superrivolution,
-  author       = {Daroya, Rangel and
-                  Maji, Subhransu},
-  title        = {SuperRivolution: Fine-Scale Rivers from Coarse Temporal Satellite Imagery},
+  author={Daroya, Rangel and Maji, Subhransu},
+  title={SuperRivolution: Fine-Scale Rivers from Coarse Temporal Satellite Imagery},
   booktitle={IEEE/CVF Winter Conference on Applications of Computer Vision},
   year={2026}
 }
