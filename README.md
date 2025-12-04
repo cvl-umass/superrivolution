@@ -78,14 +78,14 @@ There are two options:
 ## Baselines
 1. We refer to the [RiverScope repository](https://github.com/cvl-umass/riverscope-models) for running the training and evaluation of the RiverScope and Sentinel baselines
 
-<!-- ## Citation
-If you found this useful, please consider citing our work: -->
-<!-- ```
-@dataset{daroya_2025_15376394,
+## Citation
+If you found this useful, please consider citing our work:
+```
+@inproceedings{daroya2026superrivolution,
   author       = {Daroya, Rangel and
                   Maji, Subhransu},
   title        = {SuperRivolution: Fine-Scale Rivers from Coarse Temporal Satellite Imagery},
   booktitle={IEEE/CVF Winter Conference on Applications of Computer Vision},
   year={2026}
 }
-``` -->
+```
