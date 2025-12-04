@@ -75,71 +75,6 @@ There are two options:
 2. Ground truth widths are available at 'SuperRivolution_dataset/PlanetScope/derived_gt_widths-test-wdate.csv' for a given node_id, reach_id, and date
 
 
-## Performance
-<!-- ### Water Segmentation
-Included below are the results of training and evaluating multiple models with the same configurations (5 runs per model). The number inside the parenthesis is the standard deviation.
-| Segmentation Model         | Backbone | Pre-training            | F1 Score       |Precision        | Recall      |
-|----------------------------|----------|-------------------------|----------------|-----------------|----------------|
-|DeepLabv3	|MV2	|Supervised (ImageNet1k)	|93.59 (0.27)	|94.40 (1.71)	|92.86 (2.10)	|
-|DeepLabv3	|RN50	|Supervised (ImageNet1k)	|93.79 (0.40)	|92.58 (0.99)	|95.05 (0.93)	|
-|DeepLabv3	|RN50	|MoCov3 (ImagetNet1k)	|93.92 (0.24)	|93.64 (0.47)	|94.20 (0.85)	|
-|DeepLabv3	|RN50	|SeCo	|92.96 (1.13)	|92.49 (1.62)	|93.46 (2.02)	|
-|DeepLabv3	|Swin-B	|Supervised (ImageNet1k)	|86.89 (0.40)	|86.53 (0.92)	|87.26 (0.87)	|
-|DeepLabv3	|Swin-T	|Supervised (ImageNet1k)	|85.81 (1.11)	|85.23 (2.25)	|86.42 (0.77)	|
-|DPT    	|ViT-B/16	|Supervised (ImageNet1k)	|91.21 (1.21)	|89.50 (1.65)	|92.99 (1.35)	|
-|DPT    	|ViT-B/16	|CLIP	|93.30 (0.73)	|92.29 (1.22)	|94.36 (1.06)	|
-|DPT    	|ViT-B/16	|DINO	|91.62 (1.20)	|89.18 (3.12)	|94.29 (1.50)	|
-|DPT    	|ViT-B/16	|MoCov3 (ImagetNet1k)	|90.80 (0.83)	|88.43 (2.84)	|93.50 (4.15)	|
-|DPT    	|ViT-L/16	|Supervised (ImageNet1k)	|92.88 (0.54)	|90.01 (0.27)	|95.94 (0.87)	|
-|FPN	    |MV2	|Supervised (ImageNet1k)	|93.26 (0.69)	|91.38 (1.05)	|95.23 (0.91)	|
-|FPN	    |RN50	|Supervised (ImageNet1k)	|93.64 (0.71)	|93.15 (0.83)	|94.14 (1.61)	|
-|FPN	    |RN50	|MoCov3 (ImagetNet1k)	|93.39 (0.66)	|91.49 (3.23)	|95.50 (2.38)	|
-|FPN	    |RN50	|SeCo	|93.55 (1.04)	|91.27 (3.12)	|96.03 (1.38)	|
-|FPN	    |RN50	|SatlasNet	|93.41 (0.80)	|91.24 (2.09)	|95.72 (0.66)	|
-|FPN	    |Swin-B	|SatlasNet	|93.60 (0.55)	|91.88 (0.73)	|95.40 (1.37)	|
-|FPN	    |Swin-T	|SatlasNet	|94.35 (0.35)	|93.34 (0.49)	|95.39 (1.20)	|
-|FPN	    |Swin-B	|Supervised (ImageNet1k)	|93.38 (0.72)	|91.61 (1.75)	|95.25 (0.78)	|
-|FPN	    |Swin-T	|Supervised (ImageNet1k)	|93.27 (0.55)	|91.84 (1.44)	|94.75 (0.75)	|
-|UNet	    |MV2	|Supervised (ImageNet1k)	|93.84 (1.08)	|91.80 (2.85)	|96.03 (1.40)	|
-|UNet	    |RN50	|Supervised (ImageNet1k)	|94.05 (0.31)	|93.33 (1.17)	|94.80 (0.82)	|
-|UNet	    |RN50	|MoCov3 (ImagetNet1k)	|94.20 (0.29)	|93.62 (0.43)	|94.80 (0.45)	|
-|UNet   	|RN50	|SeCo	|94.39 (0.23)	|94.21 (1.39)	|94.62 (1.71)	|
-|UNet   	|Swin-B	|Supervised (ImageNet1k)	|94.09 (0.63)	|93.01 (1.83)	|95.22 (0.66)	|
-|UNet   	|Swin-T	|Supervised (ImageNet1k)	|93.30 (1.13)	|91.89 (3.12)	|94.84 (1.71)	|
-
-### Width Estimation
-The below show the median, mean, and standard deviation of the absolute errors in width estimation (in meters). These are the statistics across abount 400 nodes in the test set evaluation.
-
-| Segmentation Model         | Backbone | Pre-training            | Median       | Mean        | Std Dev      |
-|----------------------------|----------|-------------------------|----------------|-----------------|----------------|
-|DeepLabv3	|MV2	|Supervised (ImageNet1k)	|12.00	|19.67	|30.77	|
-|DeepLabv3	|RN50	|Supervised (ImageNet1k)	|9.00	|21.90	|75.03	|
-|DeepLabv3	|RN50	|MoCov3 (ImagetNet1k)	|9.00	|15.76	|24.81	|
-|DeepLabv3	|RN50	|SeCo	|12.00	|16.97	|21.96	|
-|DeepLabv3	|Swin-B	|Supervised (ImageNet1k)	|40.50	|63.51	|101.64	|
-|DeepLabv3	|Swin-T	|Supervised (ImageNet1k)	|34.71	|59.88	|101.13	|
-|DPT	|ViT-B/16	|Supervised (ImageNet1k)	|19.50	|34.02	|75.51	|
-|DPT	|ViT-B/16	|CLIP	|10.50	|23.13	|73.61	|
-|DPT	|ViT-B/16	|DINO	|13.00	|22.81	|42.21	|
-|DPT	|ViT-B/16	|MoCov3 (ImagetNet1k)	|22.50	|45.05	|94.93	|
-|DPT	|ViT-L/16	|Supervised (ImageNet1k)	|16.25	|28.89	|49.54	|
-|FPN	|MV2	|Supervised (ImageNet1k)	|11.33	|21.86	|41.51	|
-|FPN	|RN50	|Supervised (ImageNet1k)	|7.20	|15.34	|26.48	|
-|FPN	|RN50	|MoCov3 (ImagetNet1k)	|12.00	|20.12	|28.08	|
-|FPN	|RN50	|SeCo	|8.62	|15.36	|25.80	|
-|FPN	|RN50	|SatlasNet	|9.00	|21.79	|76.42	|
-|FPN	|Swin-B	|SatlasNet	|11.49	|18.79	|29.01	|
-|FPN	|Swin-T	|SatlasNet	|10.86	|18.12	|32.53	|
-|FPN	|Swin-B	|Supervised (ImageNet1k)	|12.00	|18.20	|25.81	|
-|FPN	|Swin-T	|Supervised (ImageNet1k)	|9.00	|18.48	|32.15	|
-|UNet	|MV2	|Supervised (ImageNet1k)	|10.00	|21.78	|74.86	|
-|UNet	|RN50	|Supervised (ImageNet1k)	|9.00	|19.00	|41.50	|
-|UNet	|RN50	|MoCov3 (ImagetNet1k)	|8.45	|18.06	|37.50	|
-|UNet	|RN50	|SeCo	|7.50	|16.26	|27.36	|
-|UNet	|Swin-B	|Supervised (ImageNet1k)	|9.00	|16.32	|25.74	|
-|UNet	|Swin-T	|Supervised (ImageNet1k)	|9.00	|17.56	|28.94	| -->
-
-
 ## Baselines
 1. We refer to the [RiverScope repository](https://github.com/cvl-umass/riverscope-models) for running the training and evaluation of the RiverScope and Sentinel baselines
 
@@ -149,11 +84,8 @@ If you found this useful, please consider citing our work: -->
 @dataset{daroya_2025_15376394,
   author       = {Daroya, Rangel and
                   Maji, Subhransu},
-  title        = {RiverScope: High-Resolution River Masking Dataset},
-  month        = may,
-  year         = 2025,
-  publisher    = {Zenodo},
-  doi          = {10.5281/zenodo.15376394},
-  url          = {https://doi.org/10.5281/zenodo.15376394},
+  title        = {SuperRivolution: Fine-Scale Rivers from Coarse Temporal Satellite Imagery},
+  booktitle={IEEE/CVF Winter Conference on Applications of Computer Vision},
+  year={2026}
 }
 ``` -->
