@@ -14,7 +14,7 @@ SuperRivolution leverages abundant low-resolution temporal data to improve perfo
 ## Run training on SuperRivolution
 1. Download necessary checkpoints: [link](https://drive.google.com/drive/folders/1NNz4Qg2Ao62GUe_NAllv2BjSHYVJegf_?usp=drive_link). 
     - Place it in checkpoints such that it looks something like: superrivolution/checkpoints/moco_v3/*.pth
-2. Download the [SuperRivolution data]()
+2. Download the [SuperRivolution data](https://drive.google.com/file/d/1yzyXPdzCVI6exUdEMJFS0Su_7ccX6zXc/view?usp=sharing)
 3. Run training: `python 01_train.py --dist-url 'tcp://127.0.0.1:8001' --dist-backend 'nccl' --multiprocessing-distributed --world-size 1 --rank 0 --sr_type <sr-type> --data_dir <data path from prev step>`
     - `sr_type` can be one of: `model` (super-resolution),`input` (input upsampling),`output` (output upsampling)
     - You can additionally specify the segment_model, backbone, head, resize_size (resize_size depends on which model to use).  
